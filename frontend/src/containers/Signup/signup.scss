@@ -1,0 +1,93 @@
+.signup{
+    background-color: #888DFF;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    flex-direction: column;
+    &__title{
+        display: flex;
+        justify-content: center;    
+        align-items: center;
+        font-family: 'DM Serif Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 96px;
+        line-height: 132px;
+        color: #FFFFFF;
+        margin-bottom: 4vh;
+    }
+
+    &__body{
+        padding-top: 4vh;
+        padding-bottom: 5vh;
+        background: #F2F2F1;
+        border-radius: 30px;
+        width: min(796px,70vw);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__title{
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 83px;
+            text-align: center;
+            color: #29263E;
+            margin-bottom: 1vh;
+        }
+        &__form{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            &__text{
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 36px;
+                line-height: 47px;
+                color: #29263E;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            &__input{
+                width: calc(100% - 60px);
+                height: 50px;
+                background: #FFFFFF;
+                border: 1px solid #E0DEDA;
+                border-radius: 30px;
+                font-size: 25px;
+                padding-left: 30px;
+                padding-right: 30px;
+                border: none;
+                outline: none;
+            }
+            &__button{
+                display: flex;
+                justify-content: center;    
+                align-items: center;
+            
+                &__item{
+                    margin-top: 40px;
+                    width: 50%;
+                    height: 70px;
+                    background: #29263E;
+                    border-radius: 30px;
+                    font-family: 'DM Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 47px;
+                    color: #F9F9F9;
+                    &:hover{
+                        cursor: pointer;
+                        color:rgb(186, 189, 249);
+                    }
+                }
+            }
+            
+        }
+    }
+}

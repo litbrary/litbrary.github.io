@@ -1,0 +1,41 @@
+html{
+    background-color: #F2F2F1;
+}
+
+body{
+    background-color: #F2F2F1;
+    margin:0px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.app{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0px;
+    &__sidebar{
+        background-color: #F2F2F1;
+        flex-shrink: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 350px;
+        justify-content: center;
+        border-right: 1px solid #BFBEB6;
+    }
+    &__body{
+        background-color: #F2F2F1;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        &__content{
+            min-height: calc(100vh - 526px);
+        }
+    }
+}
+
+.swal2-popup{
+    font-family: Arial;
+}

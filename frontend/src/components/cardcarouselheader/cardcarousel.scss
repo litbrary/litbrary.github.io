@@ -1,0 +1,77 @@
+.cardcarousel{
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    width: 100%;
+    height: 30vh;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    &__bgimage{
+        position: absolute;
+        border-radius: 30px;
+        height: 30vh;
+        z-index: 1;
+        overflow: hidden;
+        width: 90%;
+        img{
+            width: 100%;
+            margin-top: -50%;
+        }
+    }
+    &__content{
+        position: absolute;
+        
+        width: 90%;
+        height: 30vh;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        z-index: 2;
+        &__image{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 8%;
+            img{
+                width: 180px;
+                height: 240px;
+            }
+        }
+
+        &__text{
+            margin-left: 6%;
+            display: flex;
+            flex-direction: column;
+            &__title{
+                font-family: 'DM Serif Display';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 64px;
+                line-height: 70px;
+                color: #F9F9F9;
+            }
+    
+            &__desc{
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 29px;
+                color: #F9F9F9;
+            }
+        }
+        
+    }
+}
+
+#cardcarousel_0{
+    background-color: rgba(255, 166, 166, 0.9);
+}
+#cardcarousel_1{
+    background-color: rgba(136, 141, 255, 0.9);
+}
+#cardcarousel_2{
+    background-color: rgba(255, 211, 144, 0.9);
+}

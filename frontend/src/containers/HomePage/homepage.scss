@@ -1,0 +1,95 @@
+.homepage{
+    
+    &__carousel{
+        width: calc(100vw - 370px);
+        overflow: hidden;
+    }
+    &__popular{
+        padding-left: 60px;
+        &__cardbook{
+            width: 70vw;
+            overflow: hidden;
+        }
+    }
+
+    &__genres{
+        padding-left: 60px;
+        &__cardgenre{
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__foryou{
+        padding-left: 60px;
+        &__cardbook{
+            width: 70vw;
+            overflow: hidden;
+        }
+    }
+
+    &__findus{
+        padding-left: 60px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        &__text{
+            h2{
+                margin-top: 59px;
+                width: 289px;
+                height: 67px;
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 42px;
+                color: #000000;
+            }
+    
+            h3{
+                margin-top: 40px;
+                width: 221px;
+                height: 67px;
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 26px;
+                color: #565656;
+            }
+        }
+
+        &__map{
+            margin-left: 20vw;
+            #map{
+                border: none;
+                object-fit: cover;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                width: 377px;
+                height: 377px;
+            }
+           
+        }
+        
+    }
+    h1{
+        font-family: 'DM Serif Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 88px;
+        color: #29263E;
+        margin: 0px;
+        margin-bottom: 40px;
+    }
+
+    Link{
+        text-decoration: none;
+    }
+}

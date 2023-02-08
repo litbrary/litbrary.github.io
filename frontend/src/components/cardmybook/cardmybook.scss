@@ -1,0 +1,80 @@
+.cardmybook{
+    display: flex;
+    width: min(1024px,80%);
+    height: 220px;
+
+    background: #F9F9F9;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 69px;
+    margin-bottom: 35px;
+    transition: transform .5s ease;
+    &__content{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        &__image{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        img{
+            width: 108px;
+            height: 141px;
+            filter: drop-shadow(5px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        &__info{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            &__title{
+                margin-top: 27px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 26px;
+                line-height: 31px;
+                color: #29263E;
+            }
+            &__author{
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 29px;
+                color: #565656;
+            }
+        }
+        
+        &__date{
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 29px;
+            color: #565656;
+
+            &__bold{
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 26px;
+                line-height: 31px;
+                color: #29263E;
+            }
+        }
+        
+    }
+    &:hover{
+        transform: scale(1.025); 
+    }
+}

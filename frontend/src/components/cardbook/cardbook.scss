@@ -1,0 +1,65 @@
+.cardbook{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    &__container{
+        transition: transform .2s ease;
+        width: 272px;
+        height: 361px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 29px;
+        &__content{
+            img{
+                width: 146px;
+                height: 205px;
+                margin-top: 29px;
+            }
+
+            &__title{
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                margin-top: 27px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 26px;
+                line-height: 31px;
+                text-align: center;
+                color: #29263E;
+            }
+            &__author{
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 29px;
+                text-align: center;
+                color: #565656;
+            }
+
+            
+        }
+        &:hover{
+            transform: scale(1.05); 
+        }
+    }
+    
+    
+}
+
+#book_0{
+    background: linear-gradient(to bottom, #888DFF 50%, #F9F9F9 50%);
+}
+
+#book_1{
+    background: linear-gradient(to bottom, #FFA6A6 50%, #F9F9F9 50%);
+}
+
+#book_2{
+    background: linear-gradient(to bottom, #FFD390 50%, #F9F9F9 50%);
+}

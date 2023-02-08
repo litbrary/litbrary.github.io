@@ -1,0 +1,151 @@
+.book{
+
+    &__detail{
+        display: flex;
+        flex-direction: column;
+        &__bgimage{
+            width: 100%;
+            height: 547px;
+            position: absolute;
+            z-index: 0;
+            overflow: hidden;
+            img{
+                width: 100%;
+                margin-top: -50%;
+            }
+        }
+        &__header{
+            display: flex;
+            z-index: 1;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            background-color: rgba(136, 141, 255, 0.9);
+            height: 547px;
+            &__info{
+                padding-bottom: 5%;
+                margin-right: 60px;
+                margin-left: 65px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                &__title{
+                    font-family: 'DM Serif Display';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 96px;
+                    line-height: 132px;
+                    color: #F9F9F9;
+                }
+                &__separate{
+                    width: 104px;
+                    height: 11px;
+                    background: #F9F9F9;
+                    margin-bottom: 23px;
+                }
+                &__author{
+                    font-family: 'DM Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 31px;
+                    color: #F9F9F9;
+                }
+    
+                &__publisher{
+                    font-family: 'DM Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 31px;
+                    color: #F9F9F9;
+                }     
+
+               
+            }
+
+            &__image{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-right: 10vw;
+                img{
+                    width: 292px;
+                    height: 405px;
+                    filter: drop-shadow(14px 14px 7px rgba(0, 0, 0, 0.25));
+                }
+            }
+            
+        }
+        &__description{
+            padding-left: 60px;
+            padding-right: 60px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 31px;
+            color: #29263E;
+        }
+
+        &__calendar{
+            display: flex;
+            flex-direction: row;
+            font-family:'DM Sans';
+            font-weight: 700;
+            padding-left: 60px;
+            margin-bottom: 30px;
+            width: 60%;
+            &__content{
+                width: 80%;
+            }
+            &__button{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                &__style{
+                    height: 60px;
+                    margin-left: 50px;
+                    background: #29263E;
+                    border-radius: 30px;
+                    font-family: 'DM Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 47px;
+                    color: #F9F9F9;
+                    width: 9vw;
+                    &:hover{
+                        cursor: pointer;
+                        color:rgb(186, 189, 249);
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    &__recommendation{
+        padding-left: 60px;
+        &__cardbook{
+            width: 70vw;
+            overflow: hidden;
+        }
+    }
+
+    h1{
+        font-family: 'DM Serif Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 88px;
+        color: #29263E;
+        margin-top: 0px;
+    }
+
+    Link{
+        text-decoration: none;
+    }
+}

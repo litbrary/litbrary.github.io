@@ -1,0 +1,32 @@
+.search{
+    padding-left: 60px;
+    &__result{
+        
+        &__cardbook{
+            width: 70vw;
+            overflow: hidden;
+        }
+    }
+
+    &__recommendation{       
+        &__cardbook{
+            width: 70vw;
+            overflow: hidden;
+        }
+    }
+
+    h1{
+        font-family: 'DM Serif Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 88px;
+        color: #29263E;
+        margin: 0px;
+        margin-bottom: 40px;
+    }
+
+    Link{
+        text-decoration: none;
+    }
+}

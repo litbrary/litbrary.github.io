@@ -1,0 +1,35 @@
+.mybooks{
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    &__borrowed{
+        
+        &__cardmybook{
+            margin-top: 60px;
+            margin-bottom: 50px;
+
+        }
+    }
+
+    &__history{       
+        &__cardmybook{
+            margin-top: 60px;
+            margin-bottom: 50px;
+        }
+    }
+
+    h1{
+        font-family: 'DM Serif Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 88px;
+        color: #29263E;
+        margin: 0px;
+    }
+
+    Link{
+        text-decoration: none;
+    }
+}

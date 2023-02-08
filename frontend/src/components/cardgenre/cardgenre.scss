@@ -1,0 +1,43 @@
+.cardgenre{
+    background: #888DFF;
+    border-radius: 30px;
+    width: 545px;
+    height: 346px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-right: 69px;
+    transition: transform .2s ease;
+    &__content{
+        display: flex;
+        &__title{
+            display: flex;
+            align-items: flex-end;
+            font-family: 'DM Serif Display';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 64px;
+            line-height: 78px;
+            width: 45%;
+            color: #F9F9F9;
+            margin-left: 44px;
+            margin-bottom: 28px;
+        }
+        &__symbol{
+            color: #F9F9F9;
+            display: flex;
+            align-items: center;
+        }
+    }
+    &:hover{
+        transform: scale(1.045);
+    }
+}
+
+#genre_0{
+    background: #FFA6A6;
+}
+
+#genre_1{
+    background: #888DFF;
+}
