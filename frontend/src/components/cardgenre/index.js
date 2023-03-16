@@ -1,3 +1,4 @@
+import React from 'react';
 import './cardgenre.scss';
 import {Link} from 'react-router-dom';
 

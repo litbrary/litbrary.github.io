@@ -11,7 +11,12 @@ export default function Profile() {
     const [reload, setReload] = useState(true);
 
     useEffect(() => {
-        axios.get(baseURL).then((response) => {
+        axios.get(baseURL, {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('access'),
+            }
+        }).then((response) => {
         setUser(response.data);
         setReload(false);
         });

@@ -1,3 +1,4 @@
+import React from 'react';
 import {FiHome} from 'react-icons/fi';
 import {BiBook, BiLogOut} from 'react-icons/bi';
 import {BsFillPersonFill} from 'react-icons/bs';

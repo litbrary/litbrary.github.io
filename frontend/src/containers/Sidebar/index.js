@@ -1,7 +1,14 @@
+import React from "react";
 import { SidebarContent } from "./constants";
 import { NavLink, Link } from 'react-router-dom';
 import "./sidebar.scss";
 export default function Sidebar() {
+    const handleClick = () => {
+        //set JWT token to local
+        localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
+        localStorage.removeItem("token");
+    }
     return (
         SidebarContent.map(content => (
             <div className="sidebar" key={content.id}>
@@ -27,7 +34,7 @@ export default function Sidebar() {
                         ))}
                     </ul>
                 </div>
-                <Link className="sidebar__logout" to="/login">
+                <Link className="sidebar__logout" to="/login"  onClick={handleClick}>
                     <span id="picture">
                         {content.picture}
                     </span>

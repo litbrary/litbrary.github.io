@@ -1,3 +1,4 @@
+import React from "react";
 import "./footer.scss"
 import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 

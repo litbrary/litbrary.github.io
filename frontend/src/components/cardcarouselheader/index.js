@@ -1,3 +1,4 @@
+import React from 'react';
 import './cardcarousel.scss';
 export default function CardCarousel(props){
     return (

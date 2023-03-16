@@ -1,3 +1,4 @@
+import React from 'react';
 import HomePage from './containers/HomePage';
 import Profile from './containers/Profile';
 import MyBooks from './containers/MyBooks';
