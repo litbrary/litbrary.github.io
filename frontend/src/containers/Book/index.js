@@ -1,26 +1,33 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, {useState, useEffect, useContext } from "react";
 import { UserContext } from "../../App";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./book.scss";
 import CarouselBody from "../../components/carouselbody";
-import { RangeDatePicker } from "react-google-flight-datepicker";
+import { DateRange } from 'react-date-range';
 import withReactContent from "sweetalert2-react-content";
-import "react-google-flight-datepicker/dist/main.css";
 import Swal from "sweetalert2";
 import moment from "moment";
 import Loading from "../../components/loading";
-
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css'; 
 export default function Book() {
   let { id } = useParams();
+
   const baseURL1 = "https://litbrary.pythonanywhere.com/book/" + id;
   const baseURL2 = "https://litbrary.pythonanywhere.com/recsys/?id=" + id;
   const [data, setData] = useState({ book: null, recommendation: null });
   const [reload, setReload] = useState(true);
   const MySwal = withReactContent(Swal);
   const currentUser = useContext(UserContext);
-  let startBorrowing = useRef(new Date());
-  let endBorrowing = useRef(new Date());
+  const history = useNavigate();
+  const [dateBorrowing, setDateBorrowing] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection'
+    }
+  ]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,14 +46,13 @@ export default function Book() {
   if (!data.book || !data.recommendation) return null;
 
   const handleClick = () => {
-    axios
-      .post(
+    axios.post(
         "https://litbrary.pythonanywhere.com/borrowing/",
         {
-          startDate: moment(startBorrowing.current)
+          startDate: moment(dateBorrowing[0].startDate)
             .format("YYYY-MM-DD")
             .toString(),
-          endDate: moment(endBorrowing.current).format("YYYY-MM-DD").toString(),
+          endDate: moment(dateBorrowing[0].endDate).format("YYYY-MM-DD").toString(),
           book: id.toString(),
           user: currentUser.toString(),
         },
@@ -68,13 +74,24 @@ export default function Book() {
           },
         });
       })
-      .catch(function () {
-        MySwal.fire({
-          title: "Error!",
-          text: "The book is borrowed currently!",
-          icon: "error",
-          confirmButtonText: "Okay",
-        });
+      .catch(function (error) {
+        if (error.response && error.response.status === 401) {
+          MySwal.fire({
+            title: "Error!",
+            text: "Unauthorized: Please log in to borrow the book.",
+            icon: "error",
+            confirmButtonText: "Okay",
+          }).then(() => {
+            history("/login");
+          });
+        } else {
+          MySwal.fire({
+            title: "Error!",
+            text: "The book is currently borrowed!",
+            icon: "error",
+            confirmButtonText: "Okay",
+          });
+        }
       });
   };
 
@@ -106,14 +123,13 @@ export default function Book() {
         <div className="book__detail__calendar">
           <div className="book__detail__calendar__content">
             <h1>Borrow Now!</h1>
-            <RangeDatePicker
-              startDate={new Date()}
-              endDate={new Date()}
-              onChange={(startDate, endDate) => {
-                startBorrowing.current = startDate;
-                endBorrowing.current = endDate;
-              }}
+            <DateRange
+              editableDateInputs={true}
+              onChange={item => setDateBorrowing([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={dateBorrowing}
             />
+            
           </div>
           <div className="book__detail__calendar__button">
             <button

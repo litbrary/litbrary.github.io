@@ -11,10 +11,37 @@ export default function MyBooks() {
     const [books, setBooks] = useState(null);
     const [reload, setReload] = useState(true);
 
+    const checkIsCurrent = (date1, date2) => {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+        const d3 = new Date();
+        if(d1 <= d3 && d3 <= d2){
+            return true;
+        }
+        return false;
+    }
+    const checkIsReturned = (date) => {
+        const d1 = new Date(date);
+        const d2 = new Date();
+        if(d1 < d2){
+            return true;
+        }
+        return false;
+    }
+
+    const checkIsUpcoming = (date) => {
+        const d1 = new Date(date);
+        const d2 = new Date();
+        if(d1 > d2){
+            return true;
+        }
+        return false;
+    }
+
     useEffect(() => {
         axios.get(baseURL).then((response) => {
-        setBooks(response.data);
-        setReload(false);
+            setBooks(response.data);
+            setReload(false);
         });
     }, [baseURL]);
 
@@ -27,19 +54,28 @@ export default function MyBooks() {
     
     return (
         <div className="mybooks">
-            <div className="mybooks__borrowed">
-                <h1>Borrowed Books</h1>
-                <div className="mybooks__borrowed__cardmybook">
+            <div className="mybooks__section">
+                <h1>Currently Borrowed Books</h1>
+                <div className="mybooks__section__cardmybook">
+                    {console.log(books)}
+                    {books.map((item) => {
+                        return(checkIsCurrent(item.startDate, item.endDate) ? (item.book === null ? null : <CardMyBook key={item.id} id={item.book.id} image={item.book.imgUrl} title={item.book.title} author={item.book.author} date={item.endDate}/>) : null)
+                    })}
+                </div>               
+            </div>
+            <div className="mybooks__section">
+                <h1>Upcoming</h1>
+                <div className="mybooks__section__cardmybook">
                     {books.map((item) => (
-                        item.isReturned ? null: (item.book === null ? null : <CardMyBook key={item.id} id={item.book.id} image={item.book.imgUrl} title={item.book.title} author={item.book.author} date={item.endDate}/>)
+                        checkIsUpcoming(item.startDate) ? (item.book === null ? null : <CardMyBook key={item.id} id={item.book.id} image={item.book.imgUrl} title={item.book.title} author={item.book.author} date={item.endDate}/>) : null
                     ))}
                 </div>               
             </div>
-            <div className="mybooks__history">
+            <div className="mybooks__section">
                 <h1>History</h1>
-                <div className="mybooks__history__cardmybook">
+                <div className="mybooks__section__cardmybook">
                     {books.map((item) => (
-                        item.isReturned ? (item.book === null ? null : <CardMyBook key={item.id} id={item.book.id} image={item.book.imgUrl} title={item.book.title} author={item.book.author} date={item.endDate}/>) : null
+                        checkIsReturned(item.endDate) ? (item.book === null ? null : <CardMyBook key={item.id} id={item.book.id} image={item.book.imgUrl} title={item.book.title} author={item.book.author} date={item.endDate}/>) : null
                     ))}
                 </div>     
             </div>

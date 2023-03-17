@@ -4,7 +4,6 @@ import { UserContext } from '../../App';
 import axios from 'axios';
 import Loading from '../../components/loading';
 export default function Profile() {
-
     const currentUser = useContext(UserContext);
     const baseURL = 'https://litbrary.pythonanywhere.com/user/'+currentUser;
     const [user, setUser] = useState(null);
@@ -17,8 +16,10 @@ export default function Profile() {
                 Authorization: 'Bearer ' + localStorage.getItem('access'),
             }
         }).then((response) => {
-        setUser(response.data);
-        setReload(false);
+            setUser(response.data);
+            setReload(false);
+        }).catch(() => {
+            window.location.replace("/login")
         });
     }, [baseURL]);
 

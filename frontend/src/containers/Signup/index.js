@@ -37,7 +37,7 @@ export default function Signup(){
                     }
                   }).then(function () {
                     // Redirect the user
-                    window.location.href = "/login";
+                    window.location.href = "/";
                   });
               })
               .catch(function () {

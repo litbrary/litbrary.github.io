@@ -1,4 +1,5 @@
 import React , { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.scss';
 import axios from 'axios';
 import withReactContent from 'sweetalert2-react-content'
@@ -7,6 +8,7 @@ import Swal from 'sweetalert2';
 
 export default function Login(){
     const baseURL = 'https://litbrary.pythonanywhere.com/auth/';
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const MySwal = withReactContent(Swal);
@@ -20,6 +22,7 @@ export default function Login(){
                 //set JWT token to local
                 localStorage.setItem("access", response.data.access);
                 localStorage.setItem("refresh", response.data.refresh);
+                
                 //set token to axios common header
                 window.location.href = "/";
             })
@@ -32,7 +35,13 @@ export default function Login(){
             })
             });
     }
-    
+ 
+
+    window.onpopstate = () => {
+        navigate("/");
+    }
+
+
     return (
         <div className="login">
             <div className="login__title">Library</div>
@@ -50,6 +59,8 @@ export default function Login(){
                     <div className="login__body__form__signin">
                         <div className="login__body__form__signin__text">Don't have an account?</div>
                         <Link className="login__body__form__signin__link" to="/signup">Sign Up</Link>
+                        or
+                        <Link className="login__body__form__signin__link" to="/">Continue as a Guest</Link>  
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { Suspense, createContext } from "react";
-import { Routes, Route, Outlet, Navigate } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import routesData from "./routesData";
 import Header from "./containers/Header";
 import Sidebar from "./containers/Sidebar";
@@ -10,12 +10,6 @@ import Signup from "./containers/Signup";
 import "./App.scss";
 
 const user = "asdfadfs";
-
-function HasJWT() {
-  let flag = false;
-  localStorage.getItem("access") ? flag=true : flag=false
-  return flag
-}
 
 const Layout = () =>(
   <div className="app">
@@ -40,7 +34,9 @@ export default function App() {
   return (
     <UserContext.Provider value={user}>
         <Routes>   
-          <Route element={HasJWT() ? <Layout /> : <Navigate to="/login"/>}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} /> 
+          <Route element={<Layout />}>
             {routesData.map((route) => (
               <Route
               key={route.id}
@@ -50,9 +46,7 @@ export default function App() {
               />
             ))}
           </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} /> 
-          <Route path="*" element={HasJWT() ? <NotFoundPage/> : <Navigate to="/login"/>}/>
+          <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
       
     </UserContext.Provider>
